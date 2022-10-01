@@ -1,6 +1,6 @@
 class Contact {
   final String name;
-  final int number;
+  final int? number;
 
   Contact({required this.name, required this.number});
 
