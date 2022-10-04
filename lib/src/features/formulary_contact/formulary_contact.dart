@@ -14,7 +14,7 @@ class FormularyContact extends StatelessWidget {
     Contact? newContact;
 
     if (name != "" || number != null) {
-      Navigator.of(context).pop(Contact(name: name, number: number));
+      Navigator.of(context).pop(Contact(id: 0, name: name, number: number));
     }
   }
 

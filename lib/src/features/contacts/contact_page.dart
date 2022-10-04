@@ -6,7 +6,6 @@ import '../../shared/models/contact_model.dart';
 
 class ContactPage extends StatefulWidget {
   final String appBarTitle = "Contacts";
-  final Contact contact = Contact(name: "jefferson", number: 100);
   final List<Contact> contacts = [];
 
   @override
