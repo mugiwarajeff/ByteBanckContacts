@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/src/features/home/widgets/contact_box.dart';
 
 class HomePage extends StatelessWidget {
   final String appBarTitle = "Dashboard";
+
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset("assets/images/bytebank_logo.png"),
-            ContactBox()
+            const ContactBox()
           ],
         ),
       ),

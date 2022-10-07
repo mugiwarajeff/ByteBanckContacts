@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'formulary_input.dart';
 
+// ignore: must_be_immutable
 class InputFormularyList extends StatelessWidget {
   final String nameInputHint = "Insira um Nome";
   final String nameInputLabel = "Name";
@@ -21,12 +22,12 @@ class InputFormularyList extends StatelessWidget {
     return Column(
       children: [
         FormularyInput(
-          Controller: nameController,
+          controller: nameController,
           hintText: nameInputHint,
           label: nameInputLabel,
         ),
         FormularyInput(
-          Controller: numberController,
+          controller: numberController,
           hintText: numberInputHint,
           label: numberInputLabel,
         )

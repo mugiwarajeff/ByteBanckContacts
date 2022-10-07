@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../contacts/contact_page.dart';
 
 class ContactBox extends StatelessWidget {
+  const ContactBox({super.key});
+
   @override
   Widget build(BuildContext context) {
     return InkWell(

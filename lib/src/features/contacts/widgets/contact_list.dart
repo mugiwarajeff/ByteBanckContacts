@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../shared/models/contact_model.dart';
-import 'Contact_item.dart';
+import 'contact_item.dart';
 
+// ignore: must_be_immutable
 class ContactList extends StatelessWidget {
   late List<Contact> contacts;
 

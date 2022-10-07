@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ButtonFormulary extends StatelessWidget {
   void Function() action;
 
-  ButtonFormulary({required void Function() this.action});
+  ButtonFormulary({super.key, required this.action});
 
   @override
   Widget build(BuildContext context) {

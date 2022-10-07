@@ -1,17 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FormularyInput extends StatelessWidget {
   late String label;
   late String hintText;
   final double sizeOfLabel = 24.00;
 
-  late TextEditingController Controller;
+  late TextEditingController controller;
   FormularyInput({
     super.key,
     required this.label,
     required this.hintText,
-    required this.Controller,
+    // ignore: non_constant_identifier_names
+    required this.controller,
   });
 
   @override
@@ -19,7 +20,7 @@ class FormularyInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextField(
-        controller: Controller,
+        controller: controller,
         decoration: InputDecoration(
             label: Text(
               label,
