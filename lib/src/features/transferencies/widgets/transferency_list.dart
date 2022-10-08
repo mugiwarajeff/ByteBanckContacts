@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-
-import '../models/contact_model.dart';
-import 'contact_item.dart';
+import '../models/transferency_model.dart';
+import 'transferency_item.dart';
 
 // ignore: must_be_immutable
-class ContactList extends StatelessWidget {
-  late List<Contact> contacts;
+class TransferencyList extends StatelessWidget {
+  late List<Transferency> contacts;
 
-  ContactList({super.key, required this.contacts});
+  TransferencyList({super.key, required this.contacts});
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: contacts.length,
       itemBuilder: ((context, index) {
-        return ContactItem(
+        return TrasferencyItem(
           contact: contacts[index],
         );
       }),

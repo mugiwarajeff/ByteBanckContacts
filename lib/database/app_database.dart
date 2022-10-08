@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 
 Future<Database> createDatabase() async {
   String pathDB = await getDatabasesPath();
-  String nameDB = "bytebank01.db";
+  String nameDB = "bytebank02.db";
   final String path = join(pathDB, nameDB);
 
   Database databaseReturn = await openDatabase(path, onCreate: (db, version) {

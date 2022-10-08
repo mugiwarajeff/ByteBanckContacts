@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../models/contact_model.dart';
+import '../models/transferency_model.dart';
 
 // ignore: must_be_immutable
-class ContactItem extends StatelessWidget {
-  late Contact contact;
-  ContactItem({super.key, required this.contact});
+class TrasferencyItem extends StatelessWidget {
+  late Transferency contact;
+  TrasferencyItem({super.key, required this.contact});
 
   @override
   Widget build(BuildContext context) {

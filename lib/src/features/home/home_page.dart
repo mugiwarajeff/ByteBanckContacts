@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/features/home/widgets/feature_box.dart';
 
-import '../contacts/contact_page.dart';
+import '../transferencies/transferency_page.dart';
 import '../transaction_feed/transaction_feed_page.dart';
 
 class HomePage extends StatelessWidget {

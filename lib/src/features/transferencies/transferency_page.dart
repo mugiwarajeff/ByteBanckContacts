@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/database/dao/contacts_dao.dart';
-import 'package:my_app/src/features/contacts/widgets/contact_list.dart';
-import 'package:my_app/src/features/contacts/widgets/waiting.dart';
+import 'package:my_app/src/features/transferencies/widgets/transferency_list.dart';
+import 'package:my_app/src/features/transferencies/widgets/waiting.dart';
 import 'package:my_app/src/features/formulary_contact/formulary_contact.dart';
 
-import 'models/contact_model.dart';
+import 'models/transferency_model.dart';
 
 class ContactPage extends StatefulWidget {
-  final String appBarTitle = "Contacts";
+  final String appBarTitle = "Transferencies";
   final ContactDAO contactDAO = ContactDAO();
 
   ContactPage({super.key});
@@ -28,7 +28,7 @@ class ContactPageState extends State<ContactPage> {
           (value) => widget.contactDAO.getAll(),
         ),
         builder: ((context, snapshot) {
-          List<Contact> contacts = [];
+          List<Transferency> contacts = [];
           switch (snapshot.connectionState) {
             case ConnectionState.none:
               break;
@@ -40,7 +40,7 @@ class ContactPageState extends State<ContactPage> {
               if (snapshot.data != null) {
                 contacts = snapshot.data!;
               }
-              return ContactList(contacts: contacts);
+              return TransferencyList(contacts: contacts);
           }
           return const Text("Erro 500");
         }),

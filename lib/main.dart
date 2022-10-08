@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/http/http_client.dart';
 import 'package:my_app/src/features/home/home_page.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  runApp(const MyApp());
+  getAll();
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

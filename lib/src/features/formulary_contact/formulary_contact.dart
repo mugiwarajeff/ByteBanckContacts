@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/features/formulary_contact/widgets/button_formulary.dart';
 import 'package:my_app/database/dao/contacts_dao.dart';
 import 'package:my_app/src/features/formulary_contact/widgets/formulary_input_list.dart';
-import 'package:my_app/src/features/contacts/models/contact_model.dart';
+
+import '../transferencies/models/transferency_model.dart';
 
 class FormularyContact extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
@@ -16,7 +17,8 @@ class FormularyContact extends StatelessWidget {
     int? number = int.tryParse(numberController.text);
 
     if (name != "" || number != null) {
-      contactDAO.insertDataBase(Contact(id: 0, name: name, number: number));
+      contactDAO
+          .insertDataBase(Transferency(id: 0, name: name, number: number));
       Navigator.of(context).pop();
     }
   }

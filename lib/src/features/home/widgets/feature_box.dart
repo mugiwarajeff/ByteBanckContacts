@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../contacts/contact_page.dart';
+import '../../transferencies/transferency_page.dart';
 
 class FeatureBox extends StatelessWidget {
   late String title;

@@ -1,9 +1,9 @@
-class Contact {
+class Transferency {
   final int id;
   final String name;
   final int? number;
 
-  Contact({required this.id, required this.name, required this.number});
+  Transferency({required this.id, required this.name, required this.number});
 
   @override
   String toString() {
