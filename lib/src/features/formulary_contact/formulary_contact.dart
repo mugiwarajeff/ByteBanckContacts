@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/src/features/formulary_contact/widgets/button_formulary.dart';
 import 'package:my_app/database/dao/contacts_dao.dart';
 import 'package:my_app/src/features/formulary_contact/widgets/formulary_input_list.dart';
-import 'package:my_app/src/shared/models/contact_model.dart';
+import 'package:my_app/src/features/contacts/models/contact_model.dart';
 
 class FormularyContact extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();

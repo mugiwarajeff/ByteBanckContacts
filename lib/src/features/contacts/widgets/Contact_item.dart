@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../shared/models/contact_model.dart';
+import '../models/contact_model.dart';
 
 // ignore: must_be_immutable
 class ContactItem extends StatelessWidget {

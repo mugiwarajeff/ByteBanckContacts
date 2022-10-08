@@ -4,7 +4,7 @@ import 'package:my_app/src/features/contacts/widgets/contact_list.dart';
 import 'package:my_app/src/features/contacts/widgets/waiting.dart';
 import 'package:my_app/src/features/formulary_contact/formulary_contact.dart';
 
-import '../../shared/models/contact_model.dart';
+import 'models/contact_model.dart';
 
 class ContactPage extends StatefulWidget {
   final String appBarTitle = "Contacts";

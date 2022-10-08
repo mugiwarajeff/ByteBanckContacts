@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../shared/models/contact_model.dart';
+import '../models/contact_model.dart';
 import 'contact_item.dart';
 
 // ignore: must_be_immutable
