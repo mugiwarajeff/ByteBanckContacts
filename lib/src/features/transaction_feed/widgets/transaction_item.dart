@@ -10,9 +10,18 @@ class TransactionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title),
-      subtitle: Text(subtitle),
+    return Card(
+      child: ListTile(
+        leading: const Icon(Icons.monetization_on),
+        title: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+        subtitle: Text(
+          subtitle,
+          style: const TextStyle(fontSize: 16),
+        ),
+      ),
     );
   }
 }

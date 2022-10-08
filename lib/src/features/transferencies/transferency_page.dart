@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/database/dao/contacts_dao.dart';
 import 'package:my_app/src/features/transferencies/widgets/transferency_list.dart';
-import 'package:my_app/src/features/transferencies/widgets/waiting.dart';
+import 'package:my_app/src/shared/waiting.dart';
 import 'package:my_app/src/features/formulary_contact/formulary_contact.dart';
 
 import 'models/transferency_model.dart';

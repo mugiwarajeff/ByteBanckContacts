@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/http/http_client.dart';
 import 'package:my_app/src/features/home/home_page.dart';
+import 'package:my_app/src/features/transaction_feed/models/transaction_model.dart';
+import 'package:my_app/src/features/transferencies/models/transferency_model.dart';
 
-void main() {
-  runApp(const MyApp());
-  getAll();
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
