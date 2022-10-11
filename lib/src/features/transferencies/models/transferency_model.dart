@@ -9,4 +9,12 @@ class Transferency {
   String toString() {
     return "Id: $id, Name: $name, Number: $number";
   }
+
+  Transferency.fromJson(Map<String, dynamic> json)
+      : id = 0,
+        name = json['name'],
+        number = json["accountNumber"];
+
+  Map<String, dynamic> toJson() =>
+      {"id": id, "name": name, "accountNumber": number};
 }

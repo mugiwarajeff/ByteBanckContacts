@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../transferencies/transferency_page.dart';
 
+// ignore: must_be_immutable
 class FeatureBox extends StatelessWidget {
   late String title;
   late IconData icon;

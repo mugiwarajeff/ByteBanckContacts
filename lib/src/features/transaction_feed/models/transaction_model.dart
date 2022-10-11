@@ -1,5 +1,4 @@
 import 'package:my_app/src/features/transferencies/models/transferency_model.dart';
-import 'package:my_app/src/features/transferencies/widgets/transferency_item.dart';
 
 class Transaction {
   late String id;
@@ -21,8 +20,16 @@ class Transaction {
     return transaction;
   }
 
+  Transaction.fromJson(Map<String, dynamic> json)
+      : id = json["id"],
+        value = json["value"],
+        transferency = Transferency.fromJson(json["contact"]);
+
+  Map<String, dynamic> toJson() =>
+      {"value": value, "contact": transferency.toJson()};
+
   @override
   String toString() {
-    return "id: $id, Value: $value, transferency: ${transferency.toString()}";
+    return "id: $id, Value: $value, contact: ${transferency.toString()}";
   }
 }

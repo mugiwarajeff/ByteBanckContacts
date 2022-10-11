@@ -19,8 +19,8 @@ class HomePage extends StatelessWidget {
   }
 
   void _navigateToTransaction(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: ((context) => TransactionFeed())));
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: ((context) => const TransactionFeed())));
   }
 
   @override

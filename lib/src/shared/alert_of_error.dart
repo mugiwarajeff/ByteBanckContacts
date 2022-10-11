@@ -4,7 +4,7 @@ class AlertError extends StatelessWidget {
   final IconData? icon;
   final String message;
 
-  AlertError({super.key, required this.message, this.icon});
+  const AlertError({super.key, required this.message, this.icon});
 
   @override
   Widget build(BuildContext context) {
