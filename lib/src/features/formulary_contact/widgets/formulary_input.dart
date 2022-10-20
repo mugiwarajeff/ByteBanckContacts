@@ -20,6 +20,7 @@ class FormularyInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(0),
       child: TextField(
+        keyboardType: TextInputType.number,
         controller: controller,
         decoration: InputDecoration(
             label: Text(

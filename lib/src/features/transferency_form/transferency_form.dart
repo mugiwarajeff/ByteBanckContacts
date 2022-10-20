@@ -1,8 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/http/http_client.dart';
+import 'package:my_app/http/http_exception.dart';
 import 'package:my_app/src/features/formulary_contact/widgets/formulary_input.dart';
 import 'package:my_app/src/features/transaction_feed/models/transaction_model.dart';
 import 'package:my_app/src/features/transferencies/models/transferency_model.dart';
+
+import '../../shared/response_dialog.dart';
+import 'widgets/confirm_dialog.dart';
 
 class TransferencyForm extends StatelessWidget {
   final String appBarTitle = "Transferency Form";
@@ -17,13 +23,37 @@ class TransferencyForm extends StatelessWidget {
       required this.nameOfTransferency,
       required this.accountNumber});
 
-  void confirmTransferency(
-      BuildContext context, Transaction transaction) async {
-    Transaction transactionResponse =
-        await webClient.postTransaction(transaction);
+  void _showFailureMessage(BuildContext context, String message) {
+    showDialog(
+        context: context, builder: ((contextDialog) => FailureDialog(message)));
+  }
 
-    // ignore: use_build_context_synchronously
-    Navigator.of(context).pop(transactionResponse);
+  void _showSuccesMessage(BuildContext context) {
+    showDialog(
+            context: context,
+            builder: (contextDialog) {
+              return SuccessDialog("Successful Transaction");
+            })
+        .then((value) => Navigator.pop(context))
+        .then((value) => Navigator.pop(context));
+  }
+
+  void _confirmTransferency(BuildContext context,
+      Transaction transactionCreated, String password) async {
+    try {
+      final Transaction? transactionResponse =
+          await webClient.postTransaction(transactionCreated, password);
+
+      if (transactionResponse != null) {
+        _showSuccesMessage(context);
+      }
+    } on TimeoutException {
+      _showFailureMessage(context, "Timeout exception");
+    } on HTTPException catch (e) {
+      _showFailureMessage(context, e.message);
+    } on Exception {
+      _showFailureMessage(context, "Unknown error");
+    }
   }
 
   @override
@@ -62,7 +92,13 @@ class TransferencyForm extends StatelessWidget {
                         id: 0, name: nameOfTransferency, number: accountNumber);
                     Transaction transaction = Transaction(
                         id: "0", value: value, transferency: transferency);
-                    confirmTransferency(context, transaction);
+                    showDialog(
+                        context: context,
+                        builder: (context) => ConfirmDialog(
+                              confirmFunction: (String password) =>
+                                  _confirmTransferency(
+                                      context, transaction, password),
+                            ));
                   } else {
                     Navigator.of(context).pop();
                   }
