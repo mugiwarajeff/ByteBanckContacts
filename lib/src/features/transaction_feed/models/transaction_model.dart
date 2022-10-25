@@ -26,7 +26,7 @@ class Transaction {
         transferency = Transferency.fromJson(json["contact"]);
 
   Map<String, dynamic> toJson() =>
-      {"value": value, "contact": transferency.toJson()};
+      {"id": id, "value": value, "contact": transferency.toJson()};
 
   @override
   String toString() {

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/src/features/transferency_form/transferency_form.dart';
+import 'package:uuid/uuid.dart';
 import '../models/transferency_model.dart';
 
 // ignore: must_be_immutable
 class TrasferencyItem extends StatelessWidget {
   late Transferency contact;
+  final String transactionUUID = const Uuid().v4();
+
   TrasferencyItem({super.key, required this.contact});
 
   void callTransferencyForm(
@@ -13,6 +16,7 @@ class TrasferencyItem extends StatelessWidget {
         builder: ((context) => TransferencyForm(
               accountNumber: accountNumber,
               nameOfTransferency: name,
+              transactionUUID: transactionUUID,
             ))));
   }
 
@@ -20,8 +24,11 @@ class TrasferencyItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () =>
-            callTransferencyForm(context, contact.number, contact.name),
+        onTap: () => callTransferencyForm(
+          context,
+          contact.number,
+          contact.name,
+        ),
         child: ListTile(
           title: Padding(
             padding: const EdgeInsets.only(bottom: 8),

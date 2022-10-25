@@ -10,7 +10,7 @@ import 'package:my_app/http/logging_interceptor.dart';
 import 'package:my_app/src/features/transaction_feed/models/transaction_model.dart';
 
 class TransactionWebClient {
-  final Uri endpoint = Uri.http("192.168.0.105:8080", "/transactions");
+  final Uri endpoint = Uri.http("192.168.0.104:8080", "/transactions");
   final Client client = InterceptedClient.build(
       interceptors: [LogingInterceptor()],
       requestTimeout: const Duration(seconds: 5));
@@ -33,6 +33,8 @@ class TransactionWebClient {
       Transaction transaction, String password) async {
     final String bodyToPost = jsonEncode(transaction.toJson());
 
+    await Future.delayed(const Duration(seconds: 5));
+
     Response response = await client.post(endpoint,
         headers: {"Content-type": "application/json", "password": password},
         body: bodyToPost);
@@ -47,5 +49,6 @@ class TransactionWebClient {
   Map<int, String> mapCodeMessage = {
     400: "There was an error submitin transaction",
     401: "Authentication failed",
+    409: "Transaction already exists"
   };
 }
