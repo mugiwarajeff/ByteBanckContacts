@@ -20,7 +20,7 @@ class FeatureBox extends StatelessWidget {
         child: Container(
           color: Theme.of(context).colorScheme.primary,
           height: 80,
-          width: 120,
+          width: 130,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(

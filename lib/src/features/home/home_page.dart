@@ -31,32 +31,42 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset("assets/images/bytebank_logo.png"),
-            SizedBox(
-              height: 120,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
+        child: LayoutBuilder(
+          builder: (context, containts) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: containts.maxHeight),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    FeatureBox(
-                      title: transferTitle,
-                      icon: transferIcon,
-                      callBack: () => _navigateToTransferency(context),
+                  Image.asset("assets/images/bytebank_logo.png"),
+                  SizedBox(
+                    height: 120,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              FeatureBox(
+                                title: transferTitle,
+                                icon: transferIcon,
+                                callBack: () =>
+                                    _navigateToTransferency(context),
+                              ),
+                              FeatureBox(
+                                title: transactionFeedTitle,
+                                icon: transactionFeedIcon,
+                                callBack: () => _navigateToTransaction(context),
+                              ),
+                            ]),
+                      ],
                     ),
-                    FeatureBox(
-                      title: transactionFeedTitle,
-                      icon: transactionFeedIcon,
-                      callBack: () => _navigateToTransaction(context),
-                    ),
-                  ]),
+                  )
                 ],
               ),
-            )
-          ],
+            ),
+          ),
         ),
       ),
     );

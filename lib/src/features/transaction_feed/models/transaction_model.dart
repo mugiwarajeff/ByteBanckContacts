@@ -6,7 +6,8 @@ class Transaction {
   late Transferency transferency;
 
   Transaction(
-      {required this.id, required this.value, required this.transferency});
+      {required this.id, required this.value, required this.transferency})
+      : assert(value > 0);
 
   static Transaction toTransaction(Map<String, dynamic> mapTransaction) {
     Transaction transaction = Transaction(
