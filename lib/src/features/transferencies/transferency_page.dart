@@ -8,9 +8,9 @@ import 'models/transferency_model.dart';
 
 class ContactPage extends StatefulWidget {
   final String appBarTitle = "Transferencies";
-  final ContactDAO contactDAO = ContactDAO();
+  final ContactDAO contactDAO;
 
-  ContactPage({super.key});
+  ContactPage({super.key, required this.contactDAO});
 
   @override
   State<StatefulWidget> createState() {

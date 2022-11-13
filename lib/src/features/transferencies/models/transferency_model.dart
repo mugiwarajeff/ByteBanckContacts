@@ -17,4 +17,15 @@ class Transferency {
 
   Map<String, dynamic> toJson() =>
       {"id": id, "name": name, "accountNumber": number};
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Transferency &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          number == other.number;
+
+  @override
+  int get hashCode => name.hashCode ^ number.hashCode;
 }

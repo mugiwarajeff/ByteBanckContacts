@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/database/dao/contacts_dao.dart';
 import 'package:my_app/src/features/home/widgets/feature_box.dart';
 
 import '../transferencies/transferency_page.dart';
@@ -10,12 +11,15 @@ class HomePage extends StatelessWidget {
   final IconData transferIcon = Icons.monetization_on;
   final String transactionFeedTitle = "Transaction Feed";
   final IconData transactionFeedIcon = Icons.description;
+  final ContactDAO contactDAO;
 
-  const HomePage({super.key});
+  const HomePage({super.key, required this.contactDAO});
 
   void _navigateToTransferency(BuildContext context) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => ContactPage()));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => ContactPage(
+              contactDAO: contactDAO,
+            )));
   }
 
   void _navigateToTransaction(BuildContext context) {
