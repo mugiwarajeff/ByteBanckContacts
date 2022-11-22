@@ -12,12 +12,12 @@ class FormularyContact extends StatelessWidget {
 
   FormularyContact({super.key});
 
-  void confirmContact(BuildContext context) {
+  void confirmContact(BuildContext context) async {
     String name = nameController.text;
     int? number = int.tryParse(numberController.text);
 
     if (name != "" || number != null) {
-      contactDAO
+      await contactDAO
           .insertDataBase(Transferency(id: 0, name: name, number: number));
       Navigator.of(context).pop();
     }
@@ -32,7 +32,9 @@ class FormularyContact extends StatelessWidget {
           nameController: nameController,
           numberController: numberController,
         ),
-        ButtonFormulary(action: () => confirmContact(context)),
+        ButtonFormulary(action: () {
+          confirmContact(context);
+        })
       ]),
     );
   }

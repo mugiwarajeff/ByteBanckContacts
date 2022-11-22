@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+const stringKey = "authDialogInputPassword";
+
 class ConfirmDialog extends StatelessWidget {
   final String titleText = "Authenticate";
   final Function(String password) confirmFunction;
@@ -12,11 +14,14 @@ class ConfirmDialog extends StatelessWidget {
     Navigator.of(context).pop();
   }
 
+  Key inputDialogKey = const Key(stringKey);
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(titleText),
       content: TextField(
+        key: inputDialogKey,
         controller: passwordController,
         textAlign: TextAlign.center,
         maxLength: 4,

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/app_dependencies.dart';
 import 'package:my_app/http/http_client.dart';
 import 'package:my_app/http/http_exception.dart';
 import 'package:my_app/src/features/formulary_contact/widgets/formulary_input.dart';
@@ -34,8 +35,6 @@ class _TransferencyFormState extends State<TransferencyForm> {
 
   final TextEditingController valueController = TextEditingController();
 
-  final TransactionWebClient webClient = TransactionWebClient();
-
   bool _progressVisible = false;
 
   void _showFailureMessage(BuildContext context, String message) {
@@ -54,8 +53,10 @@ class _TransferencyFormState extends State<TransferencyForm> {
 
   void _confirmTransferency(BuildContext context,
       Transaction transactionCreated, String password) async {
+    final AppDependencies dependencies = AppDependencies.of(context);
     try {
-      final Transaction? transactionResponse = await webClient
+      final Transaction? transactionResponse = await dependencies
+          .transactionWebClient
           .postTransaction(transactionCreated, password)
           .whenComplete(() => setLoadingState());
 

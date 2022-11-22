@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:my_app/src/features/transferencies/models/transferency_model.dart';
 
-class Transaction {
+class Transaction extends Equatable {
   late String id;
   late double value;
   late Transferency transferency;
@@ -33,4 +34,7 @@ class Transaction {
   String toString() {
     return "id: $id, Value: $value, contact: ${transferency.toString()}";
   }
+
+  @override
+  List<Object?> get props => [value, transferency];
 }

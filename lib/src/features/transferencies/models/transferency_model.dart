@@ -1,9 +1,12 @@
-class Transferency {
+import 'package:equatable/equatable.dart';
+
+class Transferency extends Equatable {
   final int id;
   final String name;
   final int? number;
 
-  Transferency({required this.id, required this.name, required this.number});
+  const Transferency(
+      {required this.id, required this.name, required this.number});
 
   @override
   String toString() {
@@ -19,13 +22,5 @@ class Transferency {
       {"id": id, "name": name, "accountNumber": number};
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is Transferency &&
-          runtimeType == other.runtimeType &&
-          name == other.name &&
-          number == other.number;
-
-  @override
-  int get hashCode => name.hashCode ^ number.hashCode;
+  List<Object?> get props => [name, number];
 }

@@ -4,13 +4,13 @@ import 'package:my_app/src/features/transferencies/widgets/transferency_list.dar
 import 'package:my_app/src/shared/waiting.dart';
 import 'package:my_app/src/features/formulary_contact/formulary_contact.dart';
 
+import '../../../app_dependencies.dart';
 import 'models/transferency_model.dart';
 
 class ContactPage extends StatefulWidget {
   final String appBarTitle = "Transferencies";
-  final ContactDAO contactDAO;
 
-  ContactPage({super.key, required this.contactDAO});
+  ContactPage({super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -21,11 +21,12 @@ class ContactPage extends StatefulWidget {
 class ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
+    final AppDependencies dependencies = AppDependencies.of(context);
     return Scaffold(
       appBar: AppBar(title: Text(widget.appBarTitle)),
       body: FutureBuilder(
         future: Future.delayed(const Duration(seconds: 2)).then(
-          (value) => widget.contactDAO.getAll(),
+          (value) => dependencies.contactDAO.getAll(),
         ),
         builder: ((context, snapshot) {
           List<Transferency> contacts = [];

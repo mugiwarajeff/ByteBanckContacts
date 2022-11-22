@@ -1,4 +1,4 @@
 import 'package:mockito/mockito.dart';
-import 'package:my_app/database/dao/contacts_dao.dart';
+import 'package:my_app/http/http_client.dart';
 
-class MockContactDao extends Mock implements ContactDAO {}
+class MockTransactionWebClient extends Mock implements TransactionWebClient {}

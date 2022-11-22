@@ -11,15 +11,12 @@ class HomePage extends StatelessWidget {
   final IconData transferIcon = Icons.monetization_on;
   final String transactionFeedTitle = "Transaction Feed";
   final IconData transactionFeedIcon = Icons.description;
-  final ContactDAO contactDAO;
 
-  const HomePage({super.key, required this.contactDAO});
+  const HomePage({super.key});
 
   void _navigateToTransferency(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ContactPage(
-              contactDAO: contactDAO,
-            )));
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => ContactPage()));
   }
 
   void _navigateToTransaction(BuildContext context) {
